@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+from zipfile import ZipFile as zf
+import shutil as st
+from sys import argv as pega
+from os import mkdir
+
+class ZiPy:
+    def decomp(self, p1):
+        nome = "out_"+str(p1.replace(".zip", ""))
+        mkdir(nome)
+        alert = "\033[1;32m Arquivos Extraídos com Sucessos!\033[1;0m"
+        with zf(p1, "r") as z:
+            z.extractall(nome)
+            print(alert)
+
+    def comp(self, p1):
+        name = f"saída"
+
+        st.make_archive(name, "zip", "./", p1)
+        print("\033[1;32m Arquivo Compactado com Sucesso!\033[1;0m")
+
+    def help(self):
+        helpe = """\033[1;33m
+    Modo De Uso:
+        zipy <modo> [arquivo/pasta]
+    Comandos:
+        --zipar ou -z         compacta o arquivo ou pasta em um zip.
+        --extrair ou -x       descompacta arquivos zip.
+
+    Lembrete: 
+        Se precisar passar mais de um arquivo, coloque-os em uma pasta e compacte ela.
+        Os arquivos zip gerados terão o nome da pasta ou do arquivo que tiver com pactando.
+
+    Exemplos:
+        zipy --zipar pasta/
+        zipy -z arquivo.txt
+
+        zipy --extrair aquivo.zip
+        zipy -x arquivo.zip \033[1;0m """
+        print(helpe)
+
+    def run(self):
+        try:
+            p1= pega[2]
+            user = pega[1]
+
+            if user == "--zipar" or user == "-z":
+                self.comp(p1)
+            elif user == "--extrair" or user == "-x":
+                self.decomp(p1)
+            else:
+                self.help()
+        except IndexError:
+            self.help()
+
+
+
+a = ZiPy()
+a.run()
