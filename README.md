@@ -6,7 +6,7 @@ Para compactar o arquivo ou pasta digite: <br>```./zipy --zipar pasta/``` <br>
 Para descompactar um arquivo zip digite: <br>```./zipy --extrair arquivo.zip```<br> Para ver o modo de uso com mais detalhes digite ```./zipy --help``` ou apenas ```./zipy``` para obter o help.
 
 # Instalação
-Nâo precisa, mas se quiser usar sem o ```./``` mova o script para a pasta ```/usr/bin```.
+Nâo precisa, mas se quiser usar sem o ```./``` mova o script para a pasta ```bin/```.
 
 # Observações
 As permissões ficarão por sua conta.<br>
